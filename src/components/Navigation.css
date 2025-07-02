@@ -1,0 +1,119 @@
+.navbar {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 25px;
+  box-shadow: 0 2px 8px rgba(0, 86, 179, 0.2);
+  border-radius: 0 0 12px 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #0056b3;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links li a {
+  color: #0056b3;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links li a.active,
+.nav-links li a:hover {
+  background-color: #0056b3;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  width: 30px;
+  height: 22px;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  background-color: #0056b3;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.hamburger {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hamburger::before {
+  content: '';
+  top: -8px;
+}
+
+.hamburger::after {
+  content: '';
+  bottom: -8px;
+}
+
+.nav-toggle.open .hamburger {
+  background-color: transparent;
+}
+
+.nav-toggle.open .hamburger::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav-toggle.open .hamburger::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background-color: white;
+    height: calc(100vh - 60px);
+    width: 250px;
+    flex-direction: column;
+    padding-top: 20px;
+    box-shadow: -2px 0 10px rgba(0, 86, 179, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav-links.open {
+    transform: translateX(0);
+  }
+
+  .nav-links li {
+    margin-bottom: 15px;
+  }
+}
